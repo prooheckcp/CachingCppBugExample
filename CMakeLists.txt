@@ -3,4 +3,8 @@ project(CachingCppBugExample)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(CachingCppBugExample main.cpp)
+add_executable(CachingCppBugExample main.cpp
+        Player.cpp
+        Player.h
+        Health.cpp
+        Health.h)

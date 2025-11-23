@@ -1,13 +1,19 @@
+/*
+    Disclaimer: This is pseudocode based on real code
+
+    Developed by: VEENSTRA SOARES, Vasco Miguel
+
+*/
 #include <iostream>
+#include "Player.h"
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+Player player1 {};
+Player player2 {};
+
 int main() {
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
 
-    for (int i = 1; i <= 5; i++) {
-        std::cout << "i = " << i << std::endl;
-    }
+    std::cout << player1.GetPlayerId() << "\n";
+    std::cout << player2.GetPlayerId() << "\n";
 
     return 0;
 }
