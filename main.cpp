@@ -12,8 +12,10 @@ Player player2 {};
 
 int main() {
 
-    std::cout << player1.GetPlayerId() << "\n";
-    std::cout << player2.GetPlayerId() << "\n";
+    player1.Damage(10);
+
+    std::cout << player1.GetPlayerHealth().GetHealth() << "\n";
+    std::cout << player2.GetPlayerHealth().GetHealth() << "\n";
 
     return 0;
 }

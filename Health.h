@@ -18,6 +18,7 @@ public:
     void SetHealth(int);
     int GetHealth();
     int GetMaxHealth();
+    int* GetAttackersList();
 };
 
 

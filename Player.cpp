@@ -3,6 +3,7 @@
 //
 
 #include "Player.h"
+#include <iostream>
 
 const int DEFAULT_LEVEL = 100;
 
@@ -23,18 +24,17 @@ int Player::GetLevel() {
     return this->Level;
 }
 
-Health Player::GetPlayerHealth() {
+Health& Player::GetPlayerHealth() {
     return this->HealthClass;
 }
 
 void Player::Damage(int amount) {
-    Health healthReference = this->GetPlayerHealth();
-
+    Health& healthReference = this->GetPlayerHealth();
     int currentHealth = healthReference.GetHealth();
 
     healthReference.SetHealth(currentHealth - amount);
 }
 
 void Player::Damage(int amount, Player source) {
-
+    // Add to the array as well
 }

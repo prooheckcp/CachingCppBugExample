@@ -16,7 +16,7 @@ private:
     Health HealthClass;
 public:
     Player(); // Constructor
-    Health GetPlayerHealth();
+    Health& GetPlayerHealth();
 
     void Damage(int);
     void Damage(int, Player);

@@ -28,3 +28,7 @@ int Health::GetHealth() {
 int Health::GetMaxHealth() {
     return this->MaxHealth;
 }
+
+int* Health::GetAttackersList() {
+    return this->AttackersList;
+}
