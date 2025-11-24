@@ -29,25 +29,32 @@ Health& Player::GetPlayerHealth() {
 }
 
 void Player::Damage(int amount) {
+    // Basic damage application: directly subtract health
     Health& healthReference = this->GetPlayerHealth();
     int currentHealth = healthReference.GetHealth();
 
+    // No bounds checking — intentionally simple
     healthReference.SetHealth(currentHealth - amount);
 }
 
 void Player::Damage(int amount, Player source) {
+    // The overloaded Damage() stores the ID of the attacker that caused the damage
+    // This introduces additional logic and more opportunity for incorrect memory access
     Health& healthReference = this->GetPlayerHealth();
     int* attackersList = healthReference.GetAttackersList();
 
-    std::cout << "Health:" << attackersList[3] << "\n";
-
+    // this loop intentionally writes OUT OF BOUNDS. This corrupts our data
     for (int i = ATTACKERS_COUNTER_MAX - 1; i >= 0; i--){
-        attackersList[i+1] = attackersList[i]; // Intentional bug
-        std::cout << "Changed: " << i+1<< "\n";
+        // Writing to attackersList[3] corrupts memory that does exist in the array
+        attackersList[i+1] = attackersList[i];
+
         if (i == 0)
-            continue; // There is no value to override
+            continue; // Nothing to shift into index 0
     }
 
+    // Now apply actual health damage
     this->Damage(amount);
+
+    // Record the attacker at the front of the list.
     attackersList[0] = source.GetPlayerId();
 }
