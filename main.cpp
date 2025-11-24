@@ -20,10 +20,9 @@
 Player player1 {};
 Player player2 {};
 
-
 int main() {
     // Player 1 health before taking damage: expected 100
-    std::cout << player1.GetPlayerHealth().GetHealth() << "\n";
+    std::cout << "Health Before Damage: " << player1.GetPlayerHealth().GetHealth() << "\n";
     // Apply damage to Player 1, originating from Player 2.
     // Due to a hidden memory corruption bug, this unexpectedly
     // sets Player 1's health to 0 instead of reducing it by 10.
@@ -31,7 +30,7 @@ int main() {
     // Player 1 health after taking damage: output will be 0.
     // The goal is to debug why this occurs, using breakpoints to
     // track where state is corrupted during the Damage() call.
-    std::cout << player1.GetPlayerHealth().GetHealth() << "\n";
+    std::cout << "Health After Damage:"  << player1.GetPlayerHealth().GetHealth() << "\n";
 
     return 0;
 }
