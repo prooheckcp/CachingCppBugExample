@@ -36,5 +36,18 @@ void Player::Damage(int amount) {
 }
 
 void Player::Damage(int amount, Player source) {
-    // Add to the array as well
+    Health& healthReference = this->GetPlayerHealth();
+    int* attackersList = healthReference.GetAttackersList();
+
+    std::cout << "Health:" << attackersList[3] << "\n";
+
+    for (int i = ATTACKERS_COUNTER_MAX - 1; i >= 0; i--){
+        attackersList[i+1] = attackersList[i]; // Intentional bug
+        std::cout << "Changed: " << i+1<< "\n";
+        if (i == 0)
+            continue; // There is no value to override
+    }
+
+    this->Damage(amount);
+    attackersList[0] = source.GetPlayerId();
 }
