@@ -17,10 +17,10 @@
 #include <iostream>
 #include "Player.h"
 
-Player player1 {};
-Player player2 {};
-
 int main() {
+    Player player1 {};
+    Player player2 {};
+
     // Player 1 health before taking damage: expected 100
     std::cout << "Health Before Damage: " << player1.GetPlayerHealth().GetHealth() << "\n";
     // Apply damage to Player 1, originating from Player 2.
